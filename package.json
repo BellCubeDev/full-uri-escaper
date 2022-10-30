@@ -1,0 +1,64 @@
+{
+  "name": "full-uri-escaper",
+  "version": "0.5.0",
+  "description": "Quick-and-dirty CLI utility to fully escape a string as a URI component.",
+  "author": {
+    "name": "BellCube Dev",
+    "url": "https://bellcubedev.github.io"
+  },
+  "license": "CC0",
+  "bin": "built/cli.js",
+  "homepage": "https://github.com/BellCubeDev/full-uri-encoder",
+  "repository": "github:BellCubeDev/full-uri-encoder",
+  "bugs": {
+    "url": "https://github.com/BellCubeDev/full-uri-encoder/issues"
+  },
+  "keywords": [
+    "uri",
+    "url",
+    "escape",
+    "encode",
+    "component",
+    "full",
+    "full-escape",
+    "full-encode",
+    "uri-component-escape",
+    "url-component-escape",
+    "uri-component-encode",
+    "url-component-encode",
+    "full-uri-escape",
+    "full-url-escape",
+    "full-uri-encode",
+    "full-url-encode",
+    "full-uri-component-escape",
+    "full-url-component-escape",
+    "full-uri-component-encode",
+    "full-url-component-encode"
+  ],
+  "files": [
+    "built",
+    "LICENSE",
+    "README.md"
+  ],
+  "readme": "README.md",
+  "main": "built/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc -b --verbose tsconfig.json",
+    "start-cli": "cd built && nodemon --delay 1.5 cli.js",
+    "run-cli": "cd built && node cli.js"
+  },
+  "devDependencies": {
+    "@mysticatea/eslint-plugin": "^13.0.0",
+    "@types/node": "^18.0.0",
+    "@types/nodemon": "^1.19.2",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-plugin-github": "^4.3.6",
+    "eslint-plugin-sonarjs": "^0.13.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "nodemon": "^2.0.20",
+    "typescript": "^4.7.4"
+  }
+}
