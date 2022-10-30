@@ -1,6 +1,6 @@
 {
   "name": "full-uri-escaper",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Quick-and-dirty CLI utility to fully escape a string as a URI component.",
   "author": {
     "name": "BellCube Dev",
