@@ -1,7 +1,7 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
 
-name: Node.js Package
+name: NPM Package Publisher
 
 on:
   workflow_dispatch:
@@ -10,28 +10,35 @@ on:
 
 jobs:
   build:
+    name: "Build & Publish Package"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        name: "Checkout"
       - uses: actions/setup-node@v3
+        name: "Setup Node"
         with:
-          node-version: 16
+          node-version: 18
       - run: npm i
-      - run: npm build
-
-  publish-package:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        name: "Install Dependencies"
+      - run: npm run build
+        name: "Build Package"
+      - uses: JS-DevTools/npm-publish@v1
+        name: "Publish to NPM Registry"
         with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          token: ${{ secrets.NODE_API_TOKEN }}
+          registry: https://registry.npmjs.org/
+          greater-version-only: true
+      - uses: jossef/action-set-json-field@v2
+        name: "Change Package Name for GitHub"
+        with:
+          file: package.json
+          field: name
+          value: "@${{ github.repository_owner }}/${{ github.event.repository.name }}"
+      - uses: JS-DevTools/npm-publish@v1
+        name: "Publish to GitHub Packages Registry"
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          registry: https://npm.pkg.github.com
+          check-version: true
+          greater-version-only: true
