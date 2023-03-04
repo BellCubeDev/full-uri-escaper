@@ -8,10 +8,10 @@
   },
   "license": "CC0",
   "bin": "built/cli.js",
-  "homepage": "https://github.com/BellCubeDev/full-uri-encoder",
-  "repository": "github:BellCubeDev/full-uri-encoder",
+  "homepage": "https://github.com/BellCubeDev/full-uri-escaper",
+  "repository": "github:BellCubeDev/full-uri-escaper",
   "bugs": {
-    "url": "https://github.com/BellCubeDev/full-uri-encoder/issues"
+    "url": "https://github.com/BellCubeDev/full-uri-escaper/issues"
   },
   "keywords": [
     "uri",

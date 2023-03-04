@@ -1,6 +1,6 @@
 # Full URI Escaper
 
-This is a simple Node package to replace every character in a string with its URI-encoded equivalent. It can be used, for instance, to somewhat obfuscate query string parameters in a URI, for instance.
+This is a simple Node package to replace every character in a string with its URI-escaped equivalent. It can be used, for instance, to somewhat obfuscate query string parameters in a URI, for instance.
 
 **full-uri-escaper** is designed to run both in the browser and in Node.
 
@@ -11,7 +11,7 @@ This is a simple Node package to replace every character in a string with its UR
 ```js
 import fullURIEscaper from 'full-uri-escaper';
 
-// Set `escaped` to
+// log `escaped` to the console
 console.log( fullURIEscaper('Whatever you say, Mr. Boss-man!') );
 ```
 
